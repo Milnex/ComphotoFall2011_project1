@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<messages>
+	<message id="error-missing-data">
+		<div>The data file "{1}" could not be found. Check your deployment.</div>
+	</message>
+	<message id="project1">
+		<header>
+			<h1><a href="http://www.csie.ntu.edu.tw/~cyy/courses/comphoto/11fall/overview/">Computational Photography, Fall 2011</a></h1>
+			<h2><a href="http://www.csie.ntu.edu.tw/~cyy/courses/comphoto/11fall/assignments/proj1/">Project #1: Edge-Preserved Filtering</a></h2>
+			<div id="timestamp">
+				<p id="submit_time">
+					Date Submitted: 9 Nov 2011
+				</p>
+				<p id="email_time">
+					Code Emailed:  9 Nov 2011
+				</p>
+			</div>
+			<div id="author">
+				B97902037 Ming-Ying Chung
+			</div>
+		</header>
+		<section id="main_content">
+			<div id="description">
+				<h2><span>Project Description</span></h2>
+				<p>
+					<div class="quote">
+					In the class, we have introduced a bunch of edge-aware filtering: bilateral [1], WLS [2], Local extrema [3], Diffusion map [4], Domain transform [5], Local Laplacian [6], L0 minimization [7] and Guided filter [8]. In this assignment, you have three options. For the first option, you have to implement one of Local extrema or Diffusion map (which do not have their source codes released). You are free to use any language of your choice. For the second option, you can implement one of the following filters, bilateral, WLS, Guided filter, Domain transform, local Laplacian and L0 minimization (which have made their matlab codes publically available) with a language other than matlab. In the third option, you are asked to compare at least three of the following filters, bilateral, WLS, Guided filter, Domain transform, local Laplacian and L0 minimization (which have made their code publically available). Note that, since these options have different levels of difficulty, option #1 has the highest baseline grade, followed by option #2 and option #3 has the lowest. 
+					You are asked to <b>use detail manipulation as the example</b> to illustrate your filter or to compare filters. Other applications will be counted as bonus.
+						<div class="courtesy">
+						--&nbsp;Courtesy of <a href="http://www.csie.ntu.edu.tw/~cyy/courses/comphoto/11fall/assignments/proj1/">Course Website</a>
+						</div> 
+					</div>
+				</p>
+				<p>
+				In this assignment, I choose, option #2, to implement Guided Image Filter [1] by <b>using C++</b>. <br />
+				</p>
+			</div>
+			<div id="guidedfilter">
+				<h2><span>Guided Image Filter</span></h2>
+				<span>Concept</span>
+				<p>
+					Given an image, guided image filter provides an efficient, non-iterative, O(1) time complexity, way to do edge-preserved filtering. 
+					The key idea is to eliminate the noise of input image <b>p</b>, meanwhile to maximize the similarity between p and guidance image <b>I</b>.
+					Thus the problem is reduce to minimize the energy function <b>E</b>: 
+					<img class="equation" src="static/project1/eqn4.jpg" />
+					The solution is: 
+					<img class="equation" src="static/project1/eqn5.jpg" />
+					<img class="equation small" src="static/project1/eqn6.jpg" />  for each local patch <img class="symbol" src="static/project1/wk.jpg" /><br />
+					And the output of filtered p thus can be derived: 
+					<img class="equation" src="static/project1/eqn9.jpg" />
+					To do O(1)-time filtering, the paper suggests the sum area algorithm to do box filtering.
+					And there is also a modified version for colorful guidance image provided in paper. 
+				</p>
+				<span>Implementation Detail</span>
+				<p>
+					In order to do convenient matrix computation, I use <a href="http://opencv.willowgarage.com/wiki/">OpenCV library</a> (version 2.2) in my code, 
+					with CMake as the building system. And the user interface is done by <a href="http://www.webtoolkit.eu/wt">Wt, C++ web toolkit</a>, 
+					which is totally a trial of the ability of this web framework. <br/>
+				</p>
+				<span>Installation</span>
+				<p>
+					To build this program, you need to have above libraries installed, and just run
+					<code>
+					git clone git://github.com/milnex/comphoto2011 /path/to/source <br/>
+					mkdir /path/to/build && cd /path/to/build <br />
+					cmake /path/to/source <br />
+					make <br />
+					ln -s /usr/share/Wt/resources bin/resources <br/>
+					ln -s /path/to/source/static bin/static <br/>
+					</code> 
+				</p>
+			</div>
+			<div id="smoothing">
+				<h2><span>Smoothing</span></h2>
+				<p>
+					This section is a demonstration of the smoothing effect of the guided image filter.
+					Choose an input image, preferred radius of window and regularization parameter, 
+					the program use self-guidance strategy to do edge-preserved smoothing.
+				</p>
+				${smoothing}
+			</div>
+			<div id="detail_manipulation">
+				<h2><span>Detail Manipulation</span></h2>
+				<p>
+					This section demonstrate the ability of detail enhancement of the filter.
+					Its also requires the same parameters above, and the enhancement is done by computing<br />
+					<div class="equation">
+					Enhanced = (Guidance - Smoothed)*5 + Smoothed
+					</div>
+				</p>
+				${detail_manipulation}
+			</div>
+			<div id="discussion">
+				<h2><span>Discussion</span></h2>
+				<p>
+					Although the author claim that this filter is edge-preserved, non-iterative, O(1)-time and non-approximate and also no gradient distortion,
+					there is still some artifact in the result: the halo around edge. 
+					It's apparent in the enhanced result of the above rock image.
+				</p>
+			</div>
+			<div id="reference">
+				<h2><span>Reference</span></h2>
+				<ul>
+				<li>[1] K. He, J. Sun, X. Tang, Guided Image Filtering, ECCV 2010</li>
+				</ul>
+			</div>
+		</section>
+		<footer>
+			&copy; 2011 Ming-Ying Chung. All Rights Reserved.
+		</footer>
+	</message>
+</messages>
