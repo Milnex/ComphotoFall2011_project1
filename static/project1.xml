@@ -61,7 +61,8 @@
 				<p>
 					To build this program, you need to have above libraries installed, and just run
 					<code>
-					git clone git://github.com/milnex/comphoto2011 /path/to/source <br/>
+					git clone git://github.com/Milnex/comphoto2011.git <br/>
+					cp comphoto2011 /path/to/source <br />
 					mkdir /path/to/build && cd /path/to/build <br />
 					cmake /path/to/source <br />
 					make <br />

@@ -10,7 +10,8 @@ Wt C++ web toolkit
 
 Installation
 ============
-git clone git://github.com/milnex/comphoto2011
+git clone git://github.com/Milnex/comphoto2011.git
+cp comphoto2011 /path/to/source
 mkdir /path/to/build && cd /path/to/build 
 cmake /path/to/source
 make
