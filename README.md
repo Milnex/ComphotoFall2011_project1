@@ -5,8 +5,8 @@ Copyright 2011 Ming-Ying Chung. All rights reserved.
 Important Note 
 ==============  
 In this project, I experimentally adapt Wt C++ library as the user interface.  
-Thus there is an integrated web site that demonstrates my filter programs and 
-also includes my report. Unfortunately, it's a little hard to install Wt library 
+Thus there is an integrated web site that demonstrates my filter programs and  
+also includes my report. Unfortunately, it's a little hard to install Wt library  
 on MS Windows Platform (you need to have C++ boost library installed in advance).  
 
 Although I've tried to provide the binary file, it's probably won't work due to  
@@ -27,17 +27,17 @@ Wt C++ web toolkit
 
 Source Code  
 =========== 
-`git clone git://github.com/Milnex/comphoto2011.git    
-cp comphoto2011 /path/to/source`  
+`git clone git://github.com/Milnex/comphoto2011.git`  
+`cp comphoto2011 /path/to/source`  
 
 
 Compilation   
 ============  
-`mkdir /path/to/build && cd /path/to/build   
-cmake /path/to/source  
-make  
-ln -s /usr/share/Wt/resources bin/resources  
-ln -s /path/to/source/static bin/static`
+`mkdir /path/to/build && cd /path/to/build`  
+`cmake /path/to/source`  
+`make`  
+`ln -s /usr/share/Wt/resources bin/resources`  
+`ln -s /path/to/source/static bin/static`   
 
 To build the demo program only, run  
 `make demo`  
@@ -45,8 +45,8 @@ To build the demo program only, run
 
 Execution  
 =========  
-`bin/server.wt --docroot bin --http-address 0.0.0.0 --http-port 8080`   
-Now you can browse the report & program at 127.0.0.1:8080 
+`bin/server.wt --docroot bin --http-address 0.0.0.0 --http-port 8080`  
+Now you can browse the report & program at `127.0.0.1:8080`
 
 
 Demonstration
