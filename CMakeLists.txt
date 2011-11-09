@@ -1,7 +1,7 @@
 CMAKE_MINIMUM_REQUIRED (VERSION 2.6)
 PROJECT (Comphoto2011)
 OPTION (${PROJECT_NAME}_BUILD_TESTS "Build all of unit tests." ON)
-SET (PROJECT_MAIN_EXECUTABLE ${PROJECT_NAME}_main)
+SET (PROJECT_MAIN_EXECUTABLE server)
 
 # ----------------------------------------
 # check if OpenCV exists and version > 2.0
